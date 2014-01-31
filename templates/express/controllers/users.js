@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
  */
 exports.create = function (req, res, next) {
   var newUser = new User(req.body);
-  newUser.provider = 'local';
+  newUser.provider = 'intuit';
 
   newUser.save(function(err) {
     if (err) {

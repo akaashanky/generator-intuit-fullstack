@@ -11,6 +11,10 @@ var mongoose = require('mongoose'),<% if(mongo && mongoPassportUser) { %>
 //Clear old things, then add things in
 Thing.find({}).remove(function() {
   Thing.create({
+    name : 'IPP OAuth Integration',
+    info : 'The Intuit Partner Platform (IPP) is an open platform that enables developers to integrate with rich financial and transactional data through REST-based APIs',
+    awesomeness: 10
+  }, {
     name : 'HTML5 Boilerplate',
     info : 'HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.',
     awesomeness: 10

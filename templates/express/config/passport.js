@@ -3,7 +3,11 @@
 var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+    LocalStrategy = require('passport-local').Strategy,
+    IntuitStrategy = require('passport-intuit-oauth').Strategy;
+
+var INTUIT_CONSUMER_KEY = "--insert your app consumer key here--";
+var INTUIT_CONSUMER_SECRET = "--insert your app consumer secret here--";
 
 /**
  * Passport configuration
@@ -20,8 +24,8 @@ module.exports = function() {
     });
   });
 
-  // add other strategies for more authentication flexibility
-  passport.use(new LocalStrategy({
+// add other strategies for more authentication flexibility
+passport.use(new LocalStrategy({
       usernameField: 'email',
       passwordField: 'password' // this is the virtual field on the model
     },
@@ -45,4 +49,27 @@ module.exports = function() {
       });
     }
   ));
+
+// Use the IntuitStrategy within Passport.
+//   Strategies in passport require a `verify` function, which accept
+//   credentials (in this case, a token, tokenSecret, and Intuit profile), and
+//   invoke a callback with a user object.
+passport.use(new IntuitStrategy({
+    consumerKey: INTUIT_CONSUMER_KEY,
+    consumerSecret: INTUIT_CONSUMER_SECRET,
+    callbackURL: "http://127.0.0.1:3000/signup"
+  },
+  function(token, tokenSecret, profile, done) {
+    // asynchronous verification, for effect...
+    process.nextTick(function () {
+      
+      // To keep the example simple, the user's Intuit profile is returned to
+      // represent the logged-in user.  In a typical application, you would want
+      // to associate the Intuit account with a user record in your database,
+      // and return that user instead.
+      console.log(profile);
+      return done(null, profile);
+    });
+  }
+));
 };

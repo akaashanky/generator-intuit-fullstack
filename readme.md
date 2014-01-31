@@ -1,6 +1,8 @@
-# AngularJS + Express Full Stack Generator 
+# Intuit Partner Platform Full Stack App Generator 
 
-Yeoman generator for creating MEAN stack applications, using MongoDB, Express, AngularJS, and Node.
+Yeoman generator for creating MEAN stack IPP applications, using MongoDB, Express, AngularJS, and Node.
+
+Also, uses Passport for QuickBooks API authorization.
 
 Featuring: 
 
@@ -21,9 +23,9 @@ Have a look at the source code: https://github.com/DaftMonk/fullstack-demo
 
 ## Usage
 
-Install `generator-angular-fullstack`:
+Install `generator-intuit-fullstack`:
 ```
-npm install -g generator-angular-fullstack
+npm install -g generator-intuit-fullstack
 ```
 
 Make a new directory, and `cd` into it:
@@ -31,9 +33,9 @@ Make a new directory, and `cd` into it:
 mkdir my-new-project && cd $_
 ```
 
-Run `yo angular-fullstack`, optionally passing an app name:
+Run `yo intuit-fullstack`, optionally passing an app name:
 ```
-yo angular-fullstack [app-name]
+yo intuit-fullstack [app-name]
 ```
 
 ## Express
@@ -112,26 +114,26 @@ Similarly to how the `auth` middleware checks if a user authenticated before goi
 
 Available Angular generators:
 
-* [angular-fullstack](#app) (aka [angular-fullstack:app](https://github.com/yeoman/generator-angular#app))
-* [angular-fullstack:controller](https://github.com/yeoman/generator-angular#controller)
-* [angular-fullstack:directive](https://github.com/yeoman/generator-angular#directive)
-* [angular-fullstack:filter](https://github.com/yeoman/generator-angular#filter)
-* [angular-fullstack:route](https://github.com/yeoman/generator-angular#route)
-* [angular-fullstack:service](https://github.com/yeoman/generator-angular#service)
-* [angular-fullstack:provider](https://github.com/yeoman/generator-angular#service)
-* [angular-fullstack:factory](https://github.com/yeoman/generator-angular#service)
-* [angular-fullstack:value](https://github.com/yeoman/generator-angular#service)
-* [angular-fullstack:constant](https://github.com/yeoman/generator-angular#service)
-* [angular-fullstack:decorator](https://github.com/yeoman/generator-angular#decorator)
-* [angular-fullstack:view](https://github.com/yeoman/generator-angular#view)
+* [intuit-fullstack](#app) (aka [intuit-fullstack:app](https://github.com/yeoman/generator-angular#app))
+* [intuit-fullstack:controller](https://github.com/yeoman/generator-angular#controller)
+* [intuit-fullstack:directive](https://github.com/yeoman/generator-angular#directive)
+* [intuit-fullstack:filter](https://github.com/yeoman/generator-angular#filter)
+* [intuit-fullstack:route](https://github.com/yeoman/generator-angular#route)
+* [intuit-fullstack:service](https://github.com/yeoman/generator-angular#service)
+* [intuit-fullstack:provider](https://github.com/yeoman/generator-angular#service)
+* [intuit-fullstack:factory](https://github.com/yeoman/generator-angular#service)
+* [intuit-fullstack:value](https://github.com/yeoman/generator-angular#service)
+* [intuit-fullstack:constant](https://github.com/yeoman/generator-angular#service)
+* [intuit-fullstack:decorator](https://github.com/yeoman/generator-angular#decorator)
+* [intuit-fullstack:view](https://github.com/yeoman/generator-angular#view)
 
 Available Fullstack generators:
 
-* [angular-fullstack:deploy](#deploy)
+* [intuit-fullstack:deploy](#deploy)
 
 **Note: Generators are to be run from the root directory of your app.**
 
-All of the **generator-angular** client side generators are available, but aliased using `angular-fullstack`. 
+All of the **generator-angular** client side generators are available, but aliased using `intuit-fullstack`. 
 
 They are aliased to ensure the files they generate are added to the correct folders and that the `index.(html/jade)` is updated properly. 
 
@@ -144,7 +146,7 @@ Initalizes a heroku app and generates a `dist` folder which is ready to push to 
 
 Example:
 ```bash
-yo angular-fullstack:deploy heroku
+yo intuit-fullstack:deploy heroku
 ```
 
 After app modifications run:
@@ -161,7 +163,7 @@ For generators that output views, the `--jade` option will output Jade instead o
 
 For example:
 ```bash
-yo angular-fullstack --jade
+yo intuit-fullstack --jade
 ```
 
 Changes the rendering engine from EJS to Jade, and generates your views as jade files instead of HTML.
@@ -173,7 +175,7 @@ For generators that output scripts, the `--coffee` option will output CoffeeScri
 
 For example:
 ```bash
-yo angular-fullstack:controller user --coffee
+yo intuit-fullstack:controller user --coffee
 ```
 
 Produces `app/scripts/controller/user.coffee`:
@@ -203,7 +205,7 @@ By default, new scripts are added to the index file. However, this may not alway
 
 To skip adding them to the index, pass in the skip-add argument:
 ```bash
-yo angular-fullstack:service serviceName --skip-add
+yo intuit-fullstack:service serviceName --skip-add
 ```
 
 ## Bower Components

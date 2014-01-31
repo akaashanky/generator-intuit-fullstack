@@ -1,9 +1,12 @@
 {
-  "name": "generator-angular-fullstack",
-  "version": "1.2.5",
-  "description": "Yeoman generator for creating MEAN stack applications, using MongoDB, Express, AngularJS, and Node",
+  "name": "generator-intuit-fullstack",
+  "version": "0.1.0",
+  "description": "Yeoman generator for creating IPP integrated MEAN stack applications, using MongoDB, Express, AngularJS, and Node",
   "keywords": [
     "yeoman-generator",
+    "intuit",
+    "oauth",
+    "ipp",
     "mean",
     "mongodb",
     "angularjs",
@@ -15,13 +18,13 @@
     "front-end",
     "app"
   ],
-  "homepage": "https://github.com/DaftMonk/generator-angular-fullstack",
-  "bugs": "https://github.com/DaftMonk/generator-angular-fullstack/issues",
-  "author": "Tyler Henkel",
+  "homepage": "https://github.com/akaashanky/generator-intuit-fullstack",
+  "bugs": "https://github.com/akaashanky/generator-intuit-fullstack/issues",
+  "author": "Akaash Patnaik",
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/DaftMonk/generator-angular-fullstack.git"
+    "url": "git://github.com/akaashanky/generator-intuit-fullstack.git"
   },
   "scripts": {
     "test": "mocha"

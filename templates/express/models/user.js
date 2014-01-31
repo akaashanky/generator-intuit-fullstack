@@ -3,7 +3,7 @@
 var mongoose = require('mongoose'),
     uniqueValidator = require('mongoose-unique-validator'),
     Schema = mongoose.Schema,
-    crypto = require('crypto');
+    bcrypt = require('bcrypt');
   
 var authTypes = ['github', 'twitter', 'facebook', 'google'],
     SALT_WORK_FACTOR = 10;
@@ -23,6 +23,8 @@ var UserSchema = new Schema({
   },
   hashedPassword: String,
   provider: String,
+  oAuthToken: String,
+  realmId: String,
   salt: String,
   facebook: {},
   twitter: {},
@@ -38,7 +40,7 @@ UserSchema
   .set(function(password) {
     this._password = password;
     this.salt = this.makeSalt();
-    this.hashedPassword = this.encryptPassword(password);
+    this.hashedPassword = this.encryptPassword(password, this.salt);
   })
   .get(function() {
     return this._password;
@@ -51,7 +53,9 @@ UserSchema
     return {
       'name': this.name,
       'role': this.role,
-      'provider': this.provider
+      'provider': this.provider,
+      'oAuthToken': this.oAuthToken,
+      'realmId': this.realmId
     };
   });
 
@@ -120,7 +124,7 @@ UserSchema.methods = {
    * @api public
    */
   authenticate: function(plainText) {
-    return this.encryptPassword(plainText) === this.hashedPassword;
+    return this.encryptPassword(plainText, this.salt) === this.hashedPassword;
   },
 
   /**
@@ -130,7 +134,7 @@ UserSchema.methods = {
    * @api public
    */
   makeSalt: function() {
-    return crypto.randomBytes(16).toString('base64');
+    return bcrypt.genSaltSync(SALT_WORK_FACTOR);
   },
 
   /**
@@ -140,10 +144,9 @@ UserSchema.methods = {
    * @return {String}
    * @api public
    */
-  encryptPassword: function(password) {
-    if (!password || !this.salt) return '';
-    var salt = new Buffer(this.salt, 'base64');
-    return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
+  encryptPassword: function(password, salt) {
+    // hash the password using our new salt
+    return bcrypt.hashSync(password, salt);
   }
 };
 

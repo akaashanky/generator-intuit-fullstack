@@ -5,6 +5,9 @@ angular.module('<%= scriptAppName %>')
     $scope.user = {};
     $scope.errors = {};
 
+    $scope.oauthToken = $location.search().oauth_token;
+    $scope.realmId = $location.search().realmId;
+
     $scope.register = function(form) {
       $scope.submitted = true;
   
@@ -12,7 +15,9 @@ angular.module('<%= scriptAppName %>')
         Auth.createUser({
           name: $scope.user.name,
           email: $scope.user.email,
-          password: $scope.user.password
+          password: $scope.user.password,
+          oAuthToken: $scope.oauthToken,
+          realmId: $scope.realmId
         })
         .then( function() {
           // Account created, redirect to home

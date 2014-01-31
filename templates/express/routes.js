@@ -3,6 +3,7 @@
 var api = require('./controllers/api'),
     index = require('./controllers')<% if(mongoPassportUser) { %>,
     users = require('./controllers/users'),
+    passport = require('passport'),
     session = require('./controllers/session');
 
 var middleware = require('./middleware')<% } %>;
@@ -15,6 +16,11 @@ module.exports = function(app) {
   // Server API Routes
   app.get('/api/awesomeThings', api.awesomeThings);
   <% if(mongoPassportUser) { %>
+  app.get('/api/auth/intuit', passport.authenticate('intuit'), function(req, res){
+    // The request will be redirected to Intuit for authentication, so this
+    // function will not be called.
+  });
+  
   app.post('/api/users', users.create);
   app.put('/api/users', users.changePassword);
   app.get('/api/users/me', users.me);
