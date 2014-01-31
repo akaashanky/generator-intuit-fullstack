@@ -253,7 +253,7 @@ Generator.prototype.askForMongo = function askForMongo() {
   }, {
     type: 'confirm',
     name: 'mongoPassportUser',
-    message: 'Would you like to include a Passport authentication boilerplate?',
+    message: 'Would you like to include a Passport authentication boilerplate for Intuit OAuth?',
     default: false,
     when: function (props) {
       return props.mongo;

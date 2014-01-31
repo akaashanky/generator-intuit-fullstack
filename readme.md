@@ -70,15 +70,15 @@ Alternatively to skip tests and jshint, use:
 
 We provide an extremely simplifed deployment process for heroku.
 
-`yo angular-fullstack:deploy heroku` generates a `dist` folder that is deployment ready  for [heroku.com](http://heroku.com/). 
+`yo intuit-fullstack:deploy heroku` generates a `dist` folder that is deployment ready  for [heroku.com](http://heroku.com/). 
 
 **Create and Deploy an app in 4 steps**
 
 1. `mkdir foo && cd foo`
 
-2. `yo angular-fullstack`
+2. `yo intuit-fullstack`
 
-3. `yo angular-fullstack:deploy heroku`
+3. `yo intuit-fullstack:deploy heroku`
 
 4. `cd dist && git push heroku master`
 
