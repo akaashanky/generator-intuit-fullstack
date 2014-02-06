@@ -30,6 +30,12 @@ Run `yo intuit-fullstack`, optionally passing an app name:
 yo intuit-fullstack [app-name]
 ```
 
+After generator finishes running, go to `passport.js` and modify the following line with your IPP Consumer Key and Secret:
+```
+var INTUIT_CONSUMER_KEY = "--insert your app consumer key here--";
+var INTUIT_CONSUMER_SECRET = "--insert your app consumer secret here--";
+```
+
 ## Express
 
 Launch your express server in development mode.
